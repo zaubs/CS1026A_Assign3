@@ -195,6 +195,14 @@ def get_top_n_aircraft(all_flights, n=3):
 
         sorted_aircrafts = sorted(aircraft_count.items(), key=lambda x:x[1], reverse=True) # sorts the dictionary values in descending order as tuples of aircraft and number of flights
 
+        # If n is inputted as a string, an exception is raised
+        if type(n) == str:
+            raise ValueError("Invalid n value!")
+
+        # Want n as an integer for a proper ranking
+        else:
+            n = int(n)
+        
         # If n is an invalid value, an exception is raised
         if n > len(sorted_aircrafts) or n < 0:
             raise ValueError("Invalid n value!")
