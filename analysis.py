@@ -212,9 +212,9 @@ def get_top_n_aircraft(all_flights, n=3):
 def get_total_duration(all_flights, airports): 
     airline_durations = {}  # Dictionary to store total durations for each airline
 
-    # Converting the airport codes to lowercase, so they can be checked as matching codes for given flight
+    # Converting the airport codes to uppercase, so they can be checked as matching codes for given flight
     for i in range(len(airports)):
-            airports[i] = airports[i].lower()
+            airports[i] = airports[i].upper()
 
     for flight in all_flights:
 
@@ -225,8 +225,8 @@ def get_total_duration(all_flights, airports):
         duration = flight_info['FlightDuration'] 
 
         # The airports between flights to check
-        dep_port = flight_info['DepartureAirport'].lower()
-        arriv_port = flight_info['ArrivalAirport'].lower()
+        dep_port = flight_info['DepartureAirport'].upper()
+        arriv_port = flight_info['ArrivalAirport'].upper()
 
 
         # Conditions that determine which flight duration is counted: including flights with specified airlines and airports only
